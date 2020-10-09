@@ -1,3 +1,5 @@
+// note to self: the recursions here are probably failing because they're possibly anti-patterns
+
 function findFactors(int, diff = 1, factors = []) {
   let factor = int / (int - diff);
   
