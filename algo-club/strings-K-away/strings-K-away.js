@@ -29,7 +29,7 @@ K = 2
     // copiedDoc -- will be used instead of legalDoc for any iteration and mutation
     // currentInstance -- index of the first remaining instance of firstWord in copiedDoc
 
-const { oregonConstitution, constitutionSnippet } = require('./test-docs/oregon-constitution')
+const { oregonConstitution, constitutionSnippet } = require('./test-docs/oregon-constitution');
 
 function validateQuery(legalDoc, firstWord, secondWord, maxDistance) {
   let copiedDoc = [...legalDoc];
@@ -60,9 +60,9 @@ A finding required by this subsection shall specify the nature of the catastroph
 const stringB = 'Legal area of jurisdiction'.split(' ');
 
 // console.log(oregonConstitution);
-// console.log(constitutionSnippet[131], constitutionSnippet[135]);
+// console.log(constitutionSnippet);
 // console.log(oregonConstitution.slice(131, 135));
-// console.log(validateQuery(oregonConstitution, 'catastrophic', 'declared', 2))
+console.log(validateQuery(oregonConstitution, 'catastrophic', 'declared', 2))
 // console.log(validateQuery(constitutionSnippet, 'catastrophic', 'declared', 5))
-console.log(validateQuery(stringA, 'catastrophic', 'declared', 2))
-console.log(validateQuery(stringB, 'Legal', 'jurisdiction', 2))
+// console.log(validateQuery(stringA, 'catastrophic', 'declared', 2))
+// console.log(validateQuery(stringB, 'Legal', 'jurisdiction', 2))

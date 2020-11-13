@@ -1,6 +1,9 @@
 // Article X-A, Oregon Constitution (sans footnotes/amendments)
 // https://ballotpedia.org/Article_X-A,_Oregon_Constitution
-exports.oregonConstitution = `
+
+const { cleanString } = require('../utils/clean-string');
+
+exports.oregonConstitution = cleanString(`
 Section 1:
 (1) As used in this Article, “catastrophic disaster” means a natural or human-caused event that:
 
@@ -94,9 +97,9 @@ Termination of operation of this Article; extension by Legislative Assembly; tra
 (4) A bill described in subsection (3) of this section may include any provisions the Legislative Assembly considers necessary to provide an orderly transition to compliance with the requirements of this Constitution that have been overridden under this Article because of the Governor’s declaration of a catastrophic disaster.
 
 (5) The Governor may not invoke the provisions of sections 1 to 5 of this Article more than one time with respect to the same catastrophic disaster. A determination under subsection (1) of this section or an extension described in subsection (2) of this section that establishes a date upon which the provisions of sections 1 to 5 of this Article shall cease to be operative does not prevent invoking the provisions of sections 1 to 5 of this Article in response to a new declaration by the Governor that a different catastrophic disaster has occurred.
-`.split('\n').join(' ').split(' ');
+`)
 
-exports.constitutionSnippet = `
+exports.constitutionSnippet = cleanString(`
 Section 1:
 (1) As used in this Article, “catastrophic disaster” means a natural or human-caused event that:
 
@@ -129,7 +132,7 @@ Section 1:
 (b) The Legislative Assembly is scheduled to convene in regular session within 30 days after the date the catastrophic disaster is declared.
 
 (5) If the Governor declares that a catastrophic disaster has occurred, the Governor shall manage the immediate response to the disaster. The actions of the Legislative Assembly under sections 3 and 4 of this Article are limited to actions necessary to implement the Governor’s immediate response to the disaster and to actions necessary to aid recovery from the disaster.
-`.split('\n').join(' ').split(' ');
+`)
 
 // potential test params -- legalDoc, firstWord, secondWord, maxDistance
   // oregonConstitution, 'catastrophic', 'declared', 2 --> true
