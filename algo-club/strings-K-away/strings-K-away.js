@@ -35,20 +35,23 @@ function validateQuery(legalDoc, firstWord, secondWord, maxDistance) {
   let copiedDoc = [...legalDoc];
 
   let currentInstance = copiedDoc.indexOf(firstWord);
-  // console.log(currentInstance)
-
-  // let match = false;
 
   // while instances of firstWord remain in the mutated document...
   while(currentInstance >= 0) {
+    // check each string immediately following the currentInstance, within maxDistance + 1; if a match is found for secondWord, exit the function entirely and return true
     for(let i = currentInstance + 1; i <= (currentInstance + maxDistance + 1); i++) {
-      console.log(i, copiedDoc[i]);
       if(copiedDoc[i] == secondWord) return true;
+      // if no match was found, exit for loop and continue with while loop
     }
+    // if the program reaches this point, then no matches were found in the section we checked. in that case, it'll remove everything from the start of the copied array through the first instance of firstWord.
+      // we need to do this so that indexOf() will accurately return the next instance of firstWord; otherwise, it'll just return the same instance again, and we'll be stuck in the loop!
+      // as a note, while it's tempting to slice from (currentInstance + maxDistance + 2), which is the first index we haven't examined at all, there's a chance that one of the strings examined in the for loop could be the next instance of firstWord (even if it didn't match secondWord).
     copiedDoc = copiedDoc.slice(currentInstance + 1, copiedDoc.length);
+    // now that we've removed the first section of copiedDoc, we can reassign the value of currentInstance to the next instance of firstWord, wherever that happens to occur in the mutated copiedDoc, and repeat the loop.
     currentInstance = copiedDoc.indexOf(firstWord);
-    // console.log(copiedDoc, currentInstance)
   }
+  // if no matches are ever found for secondWord, we'll eventually run out of instances of firstWord, and copiedDoc.indexOf(firstWord) will evaluate to -1.
+  // at that point, we'll exit the while loop and return false.
   return false;
 }
 
