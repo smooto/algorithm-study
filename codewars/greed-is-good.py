@@ -73,6 +73,7 @@ print(score([2, 4, 4, 5, 4]))
 print(score([2, 3, 4, 6, 2]))
 
 # interesting community solution -- clever use of lists; ED = my comments
+# https://www.codewars.com/kata/reviews/5bec571875977717ee002238/groups/5bec577e75977717ee002247
 # def score(dice): 
 #   sum = 0
     # ED: counter[i], points[i], and extra[i] will all refer to the same roll ('die') value, which means they can be directly compared
