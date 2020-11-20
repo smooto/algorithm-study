@@ -58,17 +58,16 @@ const compoundResidents = [
 
 // TODO: transfer explanations to markdown
 
-// reduce()
 // reduce() is used to accumulate data from an array. some uses might include:
   // counting instances of something in an array
   // creating a new array or object from data in an array
-  // combining data from an array into a single string
+  // filtering/sorting data in an array
 
 // reduce() itself has two parameters:
 // const exampleReduce = exampleArray.reduce(
-//   // the callback function -- this is what reduce will do to each element as it iterates through the array.
+//   // the callback function -- this is how reduce will process each element as it iterates through the array.
 //     // this function is commonly written inline as an anonymous arrow function (this is how we usually wrote reduce() at Alchemy).
-//     // however, the callback can also be declared as a separate, named function.
+//     // however, the callback can also be declared as a separate, named function, and referenced by its variable name here.
 //   callback,
 //   // the initial value -- OPTIONAL -- this is the initial value of the accumulator (see below).
     // if you don't specify an initial value, the reduce will use the value of the first element in the array as the initial value, and the loop will start at the second element in the source array.
@@ -83,7 +82,7 @@ const compoundResidents = [
 //   curr,
 //   // idx (index) -- OPTIONAL -- this is the index of the element currently being evaluated by the reduce().
 //   idx,
-//   // src (source array) -- OPTIONAL -- this is a direct reference to (not a copy of!) the array upon which reduce() is being called. this is mostly useful for when you're chaining methods together, and need to reference other parts of the array .
+//   // src (source array) -- OPTIONAL -- this is a direct reference to (not a copy of!) the array upon which reduce() is being called. this is mostly useful for when you're chaining methods together -- this gives you a variable name to use within your function, even if the input array is itself anonymous.
 //   src
 // )
 
