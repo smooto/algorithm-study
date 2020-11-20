@@ -1,6 +1,7 @@
 /*
 let's make a sudoku board generator!
 
+***1D approach***
 expectations (number placement):
   - the board will be a 9x9 grid of 9x9 subgrids.
   - each integer 1-9 will be placed on the board exactly 9 times.
@@ -22,6 +23,8 @@ base grid layout:
 54 55 56 | 57 58 59 | 60 61 62 | 
 63 64 65 | 66 67 68 | 69 70 71 | 
 72 73 74 | 75 76 77 | 78 79 80 | 
+
+col # === i % 9
 
 ex.: if placing 4s... (assuming no other numbers placed yet)
   instance | placement cell | cells now invalid -- 4s can no longer be placed here
@@ -56,16 +59,22 @@ data structure:
 when a number n is placed in cell i...
   - all numbers gain i as an invalid index
   - n also gains as an invalid index for...
-    - every extant cell in its column -- i - 9 (above) & i + 9 (below)
-    - every extant cell in its row -- row start will be the closest multiple of 9 that's less than i, while row end will be 1 - the closest multiple of 9 that's greater than i
+    - every extant cell in its column -- i - 9 (above) & i + 9 (below) (all cells with matching %9 value)
+    - every extant cell in its row -- row start will be the closest multiple of 9 that's less than i (value at position i - i%9), while row end will be 1 - the closest multiple of 9 that's greater than i (value at position i + i%9)
     - every extant cell in its subgrid
       -- if i is a multiple of 3, then it's in the first column of the subgrid, and we should invalidate cells in the 2 columns immediately to its right
       -- if i + 1 is a multiple of 3, then it's in the third column of the subgrid, and we should invalidate cells in the 2 columns immediately to its left
       -- if i meets neither condition, then it's in the middle column of the subgrid, and we should invalidate cells in the columns immediately to its left and right
 
-approach:
+***2d approach***
+  just record row/col coords
+  if 4 placed at (1,8), now invalid for any further 4s:
+    - all of row 1
+    - all of column 8
+    - remaining subgrid neighbors: (0,6), (0,7) & (2,6), (2,7)
 */
 
+// 1d demo grid
 function printDemoGrid() {
   let grid = '';
 
@@ -100,4 +109,14 @@ function printDemoGrid() {
   return grid;
 }
 
+// 2d demo grid
+function print2dDemoGrid() {
+  return new Array(9).fill(undefined).map((row, i) => {
+    return new Array(9).fill(undefined).map((col, j) => {
+      return `${i} , ${j}`
+    })
+  })
+}
+
 console.log(printDemoGrid());
+console.log(print2dDemoGrid());
