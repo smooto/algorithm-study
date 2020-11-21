@@ -4,7 +4,8 @@
   "description": "algorithm practice repo",
   "main": "index.js",
   "scripts": {
-    "test": "qunit --watch --filter"
+    "test": "qunit --watch --filter",
+    "init-js-challenge": "node utils/init-js-challenge.js"
   },
   "repository": {
     "type": "git",
