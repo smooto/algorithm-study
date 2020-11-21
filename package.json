@@ -4,7 +4,7 @@
   "description": "algorithm practice repo",
   "main": "index.js",
   "scripts": {
-    "test": "qunit"
+    "test": "qunit --watch --filter"
   },
   "repository": {
     "type": "git",
