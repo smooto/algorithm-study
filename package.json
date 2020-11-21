@@ -1,0 +1,22 @@
+{
+  "name": "algorithm-study",
+  "version": "1.0.0",
+  "description": "algorithm practice repo",
+  "main": "index.js",
+  "scripts": {
+    "test": "qunit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smooto/algorithm-study.git"
+  },
+  "author": "Melissa Smoot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smooto/algorithm-study/issues"
+  },
+  "homepage": "https://github.com/smooto/algorithm-study#readme",
+  "devDependencies": {
+    "qunit": "^2.12.0"
+  }
+}
