@@ -40,7 +40,7 @@ fs.appendFile(challengePath, challengeBody, (err) => {
 const testPath = require('path').join('test/', `${challengeName}.test.js`)
 
 const testBody = `const { test } = require("qunit")
-const ${toCamelCase(challengeName)} = require('../exampleDirectory/${toCamelCase(challengeName)}')
+const ${toCamelCase(challengeName)} = require('../${challengeDirectory}/${challengeName}')
 
 QUnit.module(${toCamelCase(challengeName)})
 
