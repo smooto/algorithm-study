@@ -37,7 +37,7 @@ fs.appendFile(challengePath, challengeBody, (err) => {
   console.log('Challenge file for ' + challengeName + ' created at ' + challengePath + '!');
 })
 
-const testPath = require('path').join('test/', `${challengeName}.js`)
+const testPath = require('path').join('test/', `${challengeName}.test.js`)
 
 const testBody = `const { test } = require("qunit")
 const ${toCamelCase(challengeName)} = require('../exampleDirectory/${toCamelCase(challengeName)}')
